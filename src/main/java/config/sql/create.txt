@@ -1,0 +1,16 @@
+CREATE TABLE Teacher (
+    id SERIAL PRIMARY KEY,
+    lastName VARCHAR(255) NOT NULL,
+    firstName VARCHAR(255) NOT null,
+    subject_ids int[] not null
+);
+CREATE TABLE Student (
+    id SERIAL PRIMARY KEY,
+    lastName VARCHAR(255) NOT NULL,
+    firstName VARCHAR(255) NOT null,
+    subject_ids int[] not null
+);
+CREATE TABLE Subject (
+id SERIAL PRIMARY KEY,
+name VARCHAR(255) NOT NULL
+);
