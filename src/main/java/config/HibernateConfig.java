@@ -1,8 +1,9 @@
 package config;
 
 
-import model.Student;
-import model.Teacher;
+import models.entity.Student;
+import models.entity.Subject;
+import models.entity.Teacher;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -15,6 +16,7 @@ public class HibernateConfig {
                     .configure("hibernate.cfg.xml")
                     .addAnnotatedClass(Student.class)
                     .addAnnotatedClass(Teacher.class)
+                    .addAnnotatedClass(Subject.class)
                     .buildSessionFactory();
         } catch (Throwable ex) {
             System.err.println("Initial SessionFactory creation failed." + ex);

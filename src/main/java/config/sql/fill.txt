@@ -1,0 +1,21 @@
+INSERT INTO Subject (name) VALUES
+('AKM'),
+('Java Programming'),
+('GOF Patterns'),
+('Front-end Development'),
+('English for IT part 1'),
+('DevOps Technologies'),
+('Computer Graphics');
+
+INSERT INTO Teacher (lastname, firstname, subject_ids) values
+('Viktorivna', 'Alyona', '{1}'),
+('Yurievna', 'Viktorya', '{2}'),
+('Sergiivna', 'Natalia', '{3}'),
+('Prytchyn', 'Oleksander', '{4}');
+
+INSERT INTO Student
+(firstname, lastname, subject_ids) values
+('Oleh', 'Vasylevych', '{1,2,3,4}'),
+('Vitaly', 'Horbenko', '{1,3,4,2}'),
+('Anatoliy', 'Yaroviy', '{1,3,4}'),
+('Anastasia', 'Mykhalska', '{1,3,7}');
