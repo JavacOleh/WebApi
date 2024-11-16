@@ -1,10 +1,11 @@
 package repository.dao;
 
 import config.HibernateConfig;
+import lombok.NoArgsConstructor;
 import models.entity.Student;
 import models.entity.Subject;
 import org.apache.commons.lang3.ArrayUtils;
-import repository.DaoRepositoryImpl;
+import repository.DaoRepository;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
@@ -12,14 +13,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class StudentRepository implements DaoRepositoryImpl<Student> {
-    private static StudentRepository instance;
-    private StudentRepository() {}
-    public static StudentRepository getInstance() {
-        if(instance == null)
-            instance = new StudentRepository();
-        return instance;
-    }
+@NoArgsConstructor
+public class StudentRepository implements DaoRepository<Student> {
 
     public List<Subject> getSubjectList(Student student) {
         int[] subjectIds = student.getSubjectIds();

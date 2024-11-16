@@ -5,26 +5,18 @@ import config.HibernateConfig;
 import java.util.Arrays;
 import java.util.Collections;
 
-import models.entity.Student;
+import lombok.NoArgsConstructor;
 import models.entity.Subject;
 import models.entity.Teacher;
 import org.apache.commons.lang3.ArrayUtils;
-import repository.DaoRepositoryImpl;
+import repository.DaoRepository;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 import java.util.List;
 
-public class TeacherRepository implements DaoRepositoryImpl<Teacher> {
-    private static TeacherRepository instance;
-
-    public static TeacherRepository getInstance() {
-        if(instance == null)
-            instance = new TeacherRepository();
-        return instance;
-    }
-
-    private TeacherRepository() {}
+@NoArgsConstructor
+public class TeacherRepository implements DaoRepository<Teacher> {
 
     public List<Subject> getSubjectList(Teacher teacher) {
         int[] subjectIds = teacher.getSubjectIds();

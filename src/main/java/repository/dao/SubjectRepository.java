@@ -1,22 +1,17 @@
 package repository.dao;
 
 import config.HibernateConfig;
+import lombok.NoArgsConstructor;
 import models.entity.Subject;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
-import repository.DaoRepositoryImpl;
+import repository.DaoRepository;
 
 import java.util.Collections;
 import java.util.List;
 
-public class SubjectRepository implements DaoRepositoryImpl<Subject> {
-    private static SubjectRepository instance;
-    public static SubjectRepository getInstance() {
-        if(instance == null)
-            instance = new SubjectRepository();
-        return instance;
-    }
-    private SubjectRepository() {}
+@NoArgsConstructor
+public class SubjectRepository implements DaoRepository<Subject> {
 
     public List<Subject> getList() {
         try (Session session = HibernateConfig.getSessionFactory().openSession()) {
