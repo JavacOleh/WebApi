@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JsonService {
     private ObjectMapper objectMapper;
+    //Singleton
     private static JsonService instance;
     private JsonService() {}
     private static JsonService getInstance() {

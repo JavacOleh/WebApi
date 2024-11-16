@@ -6,15 +6,18 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.SneakyThrows;
-import repository.dao.StudentRepository;
+import repository.DaoRepository;
+import repository.dao.FabricRepository;
 import services.JsonService;
+import services.logger.ConsoleLogStrategy;
+import services.logger.LogStrategy;
 
 import java.io.IOException;
 
 @WebServlet(name = "ViewStudentByParamServlet", urlPatterns = {"/viewStudentByParams"})
 public class ViewStudentByParamServlet extends HttpServlet {
-    private final transient StudentRepository studentRepository = StudentRepository.getInstance();
+    private final transient LogStrategy logStrategy = new ConsoleLogStrategy();
+    private final transient DaoRepository<?> studentRepository = new FabricRepository(logStrategy).createRepository("student");
     private final transient JsonService jsonService = JsonService.getInstance(new ObjectMapper());
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
